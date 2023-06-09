@@ -12,6 +12,7 @@ class CreateTClientTable extends Migration
      * @return void
      */
     public function up()
+    
     {
         Schema::create('t_client', function (Blueprint $table) {
             $table->id();
