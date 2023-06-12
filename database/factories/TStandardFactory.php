@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\TStandard;
+use App\Models\T_client;
+use App\Models\T_account;
 class TStandardFactory extends Factory
 {
     /**
@@ -19,8 +21,8 @@ class TStandardFactory extends Factory
     {
         
         return [
-            'account_id' => DB::table('t_account')->first()->id,
-            'client_id' => DB::table('t_client')->first()->id,
+            'account_id' => T_account::pluck('id')->random(),
+            'client_id' => T_client::pluck('id')->random(),
             'year' => $this->faker->year(),
             'month' => $this->faker->month(),
             'count' => rand(1, 100),
