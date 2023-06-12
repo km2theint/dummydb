@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\TForecast;
+use App\Models\T_client;
+use App\Models\T_account;
 
 class TForecastFactory extends Factory
 {
@@ -20,8 +22,8 @@ class TForecastFactory extends Factory
     public function definition()
     {
         return [
-            'account_id' => DB::table('t_account')->first()->id,
-            'client_id' => DB::table('t_client')->first()->id,
+            'account_id' => T_account::pluck('id')->random(),
+            'client_id' => T_client::pluck('id')->random(),
             'year' => $this->faker->year(),
             'month' => $this->faker->month(),
             'count' => rand(1, 100),
