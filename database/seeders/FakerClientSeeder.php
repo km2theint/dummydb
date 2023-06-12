@@ -14,6 +14,6 @@ class FakerClientSeeder extends Seeder
      */
     public function run()
     {
-        T_client::factory()->count(50)->create();
+        T_client::factory()->count(20)->create();
     }
 }

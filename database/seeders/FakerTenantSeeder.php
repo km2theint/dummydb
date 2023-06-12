@@ -12,8 +12,9 @@ class FakerTenantSeeder extends Seeder
      *
      * @return void
      */
+    
     public function run()
     {
-        T_tenant::factory()->count(1)->create();
+        T_tenant::factory()->count(3)->create();
     }
 }

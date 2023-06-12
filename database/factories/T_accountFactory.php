@@ -21,20 +21,26 @@ class T_accountFactory extends Factory
 
     public function definition()
     {
-        $clientData = DB::table('t_client')->first();
+        // $clientData = DB::table('t_client')->random();
+        // $clientData = T_client::all()->random()->get();
+        // var_dump($clientData->client_id);
+        $clientID = T_client::pluck('id')->random();
+        $tenantID = T_client::where('id', $clientID)->pluck('tenant_id');
+        
+
         $givenname = $this->faker->firstName;
         $fname = $this->faker->lastName;
         $name = $givenname.$fname;
         $email = $this->faker->unique()->safeEmail;
         return [
             'email' => $email,
-            'tenant_id' => $clientData->tenant_id,
-            'client_id' => $clientData->id,
+            'tenant_id' => $tenantID[0],
+            'client_id' => $clientID,
             'token' => Str::random(30),
-            'token_limitation' => $this->faker->datetime(),
+            'token_limitation' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
             'screen_name' => $name,
             'is_active' => rand(0,1),
-            'user_info' => $name.';'.$givenname.';'.$fname.';'.$email,
+            'user_info' => "{'name': $name, 'givename': $givenname, 'fname': $fname, 'email': $email}",
             'atime' => \Carbon\Carbon::now(),
             'ctime' => \Carbon\Carbon::now()
         ];

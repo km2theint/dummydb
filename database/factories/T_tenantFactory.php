@@ -17,8 +17,8 @@ class T_tenantFactory extends Factory
     {
         return [
             'name' => $this->faker->name('est'),
-            'domain' => 'Information Technoogy',
-            'is_active' => 1,
+            'domain' => $this->faker->sentence(),
+            'is_active' => rand(0,1),
         ];
     }
 }

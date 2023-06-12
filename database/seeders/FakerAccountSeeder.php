@@ -14,6 +14,6 @@ class FakerAccountSeeder extends Seeder
      */
     public function run()
     {
-        T_account::factory()->count(100)->create();
+        T_account::factory()->count(50)->create();
     }
 }
