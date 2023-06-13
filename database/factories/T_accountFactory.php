@@ -38,7 +38,7 @@ class T_accountFactory extends Factory
             'client_id' => $clientID,
             'token' => Str::random(30),
             'token_limitation' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
-            'screen_name' => $name,
+            'name' => $name,
             'is_active' => rand(0,1),
             'user_info' => "{'name': $name, 'givename': $givenname, 'fname': $fname, 'email': $email}",
             'atime' => \Carbon\Carbon::now(),
