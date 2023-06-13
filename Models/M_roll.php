@@ -9,9 +9,11 @@ class M_roll extends Model
 {
     use HasFactory;
 
-    protected $table = 'Roll';
+    protected $table = 'm_role';
 
     protected $fillable = [
         'name', 'is_active'
     ];
+
+    public $timestamps = false;
 }

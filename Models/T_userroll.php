@@ -9,9 +9,11 @@ class T_userroll extends Model
 {
     use HasFactory;
 
-    protected $table = 'Userroll';
+    protected $table = 't_userroll';
 
     protected $fillable = [
         'account_id', 'roll_id'
     ];
+
+    public $timestamps = false;
 }
