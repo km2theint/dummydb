@@ -12,7 +12,7 @@ class T_account extends Model
     protected $table = 't_account';
 
     protected $fillable = [
-        'email', 'tenant_id', 'client_id', 'screen_name', 'is_active', 'token', 'token_limitation', 'user_info', 'atime', 'ctime'
+        'email', 'tenant_id', 'client_id', 'name', 'is_active', 'token', 'token_limitation', 'user_info', 'atime', 'ctime'
     ];
 
     public $timestamps = false;
