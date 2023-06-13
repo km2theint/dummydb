@@ -14,11 +14,11 @@ class CreateTAccountTable extends Migration
     public function up()
     {
         Schema::create('t_account', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('email', 256)->nullable()->unique();
-            $table->integer('tenant_id')->unsigned();
-            $table->integer('client_id')->unsigned();
-            $table->string('screen_name', 64);
+            $table->unsignedBigInteger('tenant_id');
+            $table->unsignedBigInteger('client_id');
+            $table->string('name', 64);
             $table->boolean('is_active')->nullable()->default(1);
             $table->string('token', 256);
             $table->datetime('token_limitation');
