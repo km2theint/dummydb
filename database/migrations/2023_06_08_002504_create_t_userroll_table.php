@@ -14,16 +14,13 @@ class CreateTUserrollTable extends Migration
     public function up()
     {
         Schema::create('t_userroll', function (Blueprint $table) {
-            $table->id();
-            $table->integer('account_id')->unsigned();
-            $table->integer('roll_id')->unsigned();
-        });
-        Schema::table('t_userroll', function($table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('account_id');
+            $table->unsignedBigInteger('roll_id');
             $table->foreign('account_id')->references('id')->on('t_account')->onDelete('cascade');
-        });
-        Schema::table('t_userroll', function($table) {
             $table->foreign('roll_id')->references('id')->on('m_roll')->onDelete('cascade');
         });
+        
     }
 
     /**
